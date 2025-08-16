@@ -1,0 +1,22 @@
+---
+# Ansible Vault Template - Encrypted sensitive data
+# 
+# SETUP INSTRUCTIONS:
+# 1. Copy this file: cp group_vars/vault.yml.example group_vars/vault.yml
+# 2. Edit with your values: nano group_vars/vault.yml
+# 3. Encrypt the file: ansible-vault encrypt group_vars/vault.yml
+# 4. To edit later: ansible-vault edit group_vars/vault.yml
+
+# Domain configuration - Replace with your actual domain
+vault_domain: "your-domain.com"                    # e.g., "mycompany.com"
+vault_ssl_email: "admin@your-domain.com"          # e.g., "admin@mycompany.com"
+
+# Service passwords - GENERATE SECURE PASSWORDS
+# Use: openssl rand -base64 32 | tr -d "=+/" | cut -c1-25
+vault_traefik_admin_password: "GENERATE_SECURE_PASSWORD_HERE"
+vault_jenkins_admin_password: "GENERATE_SECURE_PASSWORD_HERE"
+vault_grafana_admin_password: "GENERATE_SECURE_PASSWORD_HERE"
+
+# Database credentials - GENERATE SECURE PASSWORDS  
+vault_db_password: "GENERATE_SECURE_DB_PASSWORD_HERE"
+vault_db_root_password: "GENERATE_SECURE_ROOT_PASSWORD_HERE"

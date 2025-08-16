@@ -1,0 +1,42 @@
+---
+# Nusatech Development Stack Configuration
+project_name: nusatech-devops
+docker_network: nusatech_devops_network
+
+# Base directories
+base_dir: /opt/{{ project_name }}
+data_dir: "{{ base_dir }}/data"
+config_dir: "{{ base_dir }}/config" 
+logs_dir: "{{ base_dir }}/logs"
+
+# Domain configuration (from vault) - DYNAMIC
+domain: "{{ vault_domain | default('example.com') }}"
+use_ssl: true
+ssl_email: "{{ vault_ssl_email | default('admin@example.com') }}"
+
+# Subdomains for services - DYNAMIC
+subdomains:
+  traefik: "traefik.{{ domain }}"
+  mattermost: "chat.{{ domain }}"
+  jenkins: "cicd.{{ domain }}"
+
+# Resource allocation (optimized for 6GB RAM)
+services:
+  traefik:
+    dashboard_port: 8080
+
+  mattermost:
+    port: 8065
+
+  jenkins:
+    port: 8080
+
+# Passwords (from vault) - SECURE REFERENCES
+traefik_admin_password: "{{ vault_traefik_admin_password }}"
+jenkins_admin_password: "{{ vault_jenkins_admin_password }}"
+postgres_admin_password: "{{ vault_db_password }}"
+
+# Security settings
+firewall_enabled: true
+fail2ban_enabled: true
+auto_updates_enabled: true
