@@ -728,12 +728,3 @@ make decrypt              # Decrypt vault file (backup only)
 **© 2024 Nusatech Development - Built with ❤️ for Ethical Software Development**
 
 *This documentation is designed to support ethical, secure, and sustainable software development. All implementations follow industry best practices and international security standards.*
-
----
-
-### 🔗 Links
-
-- **Repository**: https://github.com/nusatech/devops-stack
-- **Issues**: https://github.com/nusatech/devops-stack/issues
-- **Wiki**: https://github.com/nusatech/devops-stack/wiki
-- **Releases**: https://github.com/nusatech/devops-stack/releases
